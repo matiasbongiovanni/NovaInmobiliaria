@@ -18,7 +18,7 @@ export default function BentoSection() {
       className: "md:row-span-2 bg-pallete-400/80 hover:bg-pallete-300/80"
     },
     {
-      title: "Tiempo",
+      title: "Tiempo", 
       description: "Precios preferenciales en etapa temprana",
       icon: <Clock className="w-6 h-6" />,
       className: "md:col-span-2 bg-pallete-300/80 hover:bg-pallete-200/80"
@@ -38,57 +38,56 @@ export default function BentoSection() {
   ];
 
   return (
-    <section className="relative bg-pallete-500 min-h-[500px] w-[90%] mx-auto mt-12 p-8 rounded-2xl overflow-hidden">
+    <section className="relative bg-pallete-500 min-h-[500px] w-full px-4 md:w-[90%] mx-auto mt-12 p-4 md:p-8 rounded-2xl overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-pallete-300/20 to-transparent" />
       
       <div className="relative z-10">
         <div className="max-w-3xl">
-          <h2 className="text-white text-4xl font-extrabold leading-tight mb-6">
+          <h2 className="text-white text-2xl md:text-4xl font-extrabold leading-tight mb-4 md:mb-6">
             ¡Adelantate al mercado! Invertí en propiedades en pozo y obtené la mejor rentabilidad.
           </h2>
-          <p className="text-pallete-100 mb-8">
+          <p className="text-pallete-100 text-sm md:text-base mb-6 md:mb-8">
             Descubre las ventajas de invertir en propiedades en desarrollo y asegura tu futuro financiero.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-8 h-[400px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8 auto-rows-fr">
           {bentoItems.map((item, index) => (
             <div
               key={index}
               className={cn(
-                "p-6 rounded-xl transition-all duration-300",
+                "p-4 md:p-6 rounded-xl transition-all duration-300",
                 "transform hover:scale-[1.02]",
                 "border border-pallete-300/20",
                 "flex flex-col justify-between",
-                "p-3",
                 item.className
               )}
             >
               <div>
-                <div className="p-2 inline-block rounded-lg bg-pallete-100/10 mb-4">
+                <div className="p-2 inline-block rounded-lg bg-pallete-100/10 mb-3 md:mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-pallete-100">
+                <p className="text-sm md:text-base text-pallete-100">
                   {item.description}
                 </p>
               </div>
-              <div className="flex justify-end">
-                <ArrowRight className="w-5 h-5 text-pallete-100" />
+              <div className="flex justify-end mt-2">
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-pallete-100" />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <button className="group px-6 py-3 bg-pallete-300 text-white rounded-lg font-semibold 
-                           transition-all duration-300 hover:bg-pallete-200 flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center">
+          <button className="w-full sm:w-auto group px-4 md:px-6 py-2 md:py-3 bg-pallete-300 text-white rounded-lg font-semibold 
+                           transition-all duration-300 hover:bg-pallete-200 flex items-center justify-center gap-2 text-sm md:text-base">
             ¡Contáctanos para más información!
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
-          <a href="#learn-more" className="text-pallete-100 hover:text-white transition-colors">
+          <a href="#learn-more" className="text-sm md:text-base text-pallete-100 hover:text-white transition-colors">
             Conoce más sobre el proceso →
           </a>
         </div>

@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         hostname: "mir-s3-cdn-cf.behance.net",
-      }
+      },
+      {
+        hostname: "plus.unsplash.com",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };

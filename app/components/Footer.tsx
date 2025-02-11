@@ -20,7 +20,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({ title, links, children })
       <ul className="space-y-2">
         {links.map((link, index) => (
           <li key={index}>
-            <Link href={link.href} className="hover:text-gray-800 transition-colors">
+            <Link href={link.href} className="text-sm sm:text-base hover:text-gray-800 transition-colors">
               {link.label}
             </Link>
           </li>
@@ -41,9 +41,9 @@ const socialLinks = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-100 text-gray-600 py-12">
+    <footer className="bg-gray-100 text-gray-600 py-8 sm:py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <FooterSection
             title="Nuestra Empresa"
             links={[
@@ -76,20 +76,22 @@ const Footer: React.FC = () => {
           />
 
           <FooterSection title="Contáctanos">
-            <p>Av. Libertador 4567, Buenos Aires, Argentina</p>
-            <p>Teléfono: +54 11 4567-8901</p>
-            <p>Email: info@novainmobiliaria.com</p>
-            <div className="flex space-x-4 mt-4">
-              {socialLinks.map((social, index) => (
-                <Link key={index} href={social.href} className="text-gray-400 hover:text-gray-600 transition-colors">
-                  {social.icon}
-                </Link>
-              ))}
+            <div className="text-sm sm:text-base space-y-2">
+              <p>Av. Libertador 4567, Buenos Aires, Argentina</p>
+              <p>Teléfono: +54 11 4567-8901</p>
+              <p>Email: info@novainmobiliaria.com</p>
+              <div className="flex space-x-4 mt-4">
+                {socialLinks.map((social, index) => (
+                  <Link key={index} href={social.href} className="text-gray-400 hover:text-gray-600 transition-colors">
+                    {social.icon}
+                  </Link>
+                ))}
+              </div>
             </div>
           </FooterSection>
         </div>
-        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} Nova Inmobiliaria. Todos los derechos reservados.</p>
+        <div className="border-t border-gray-200 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
+          <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} Nova Inmobiliaria. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

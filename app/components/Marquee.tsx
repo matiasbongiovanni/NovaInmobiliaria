@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
+import Image from 'next/image';
 
 const reviews = [
   {
     "name": "Ana María López",
     "username": "@AnaMLopez", 
     "body": "¡Excelente servicio! Me ayudaron a encontrar el departamento ideal en Belgrano. Muy profesionales.",
-    "img": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D"
+    "img": "https://plus.unsplash.com/premium_photo-1688740375397-34605b6abe48?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "name": "Carlos Rodríguez",
@@ -18,25 +19,25 @@ const reviews = [
     "name": "Laura Pérez", 
     "username": "@LauraPerez",
     "body": "Encontré el local perfecto para mi negocio gracias a Nova. Excelente atención y servicio.",
-    "img": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "img": "https://plus.unsplash.com/premium_photo-1689977830819-d00b3a9b7363?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "name": "Juan Martínez",
     "username": "@JuanMartinez",
     "body": "Vendí mi propiedad en tiempo récord y a buen precio. Equipo muy profesional.",
-    "img": "https://plus.unsplash.com/premium_photo-1689977830819-d00b3a9b7363?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "img": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     "name": "Sofía González",
     "username": "@SofiaGonzalez",
     "body": "Me ayudaron con la financiación y encontré la casa perfecta. ¡Gracias Nova!",
-    "img": "https://plus.unsplash.com/premium_photo-1693258698597-1b2b1bf943cc?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "img": "https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "name": "Pedro Sánchez",
     "username": "@PedroSanchezOK",
     "body": "Encontramos la propiedad ideal para mi familia. Servicio personalizado y confiable.",
-    "img": "https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "img": "https://plus.unsplash.com/premium_photo-1693258698597-1b2b1bf943cc?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 
@@ -63,7 +64,14 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="30" height="30" alt="" src={img} />
+        <div className="relative w-12 h-12 rounded-full overflow-hidden">
+          <Image 
+            src={img} 
+            alt={`${name}'s profile picture`}
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}

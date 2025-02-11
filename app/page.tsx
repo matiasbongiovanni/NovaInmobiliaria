@@ -1,7 +1,7 @@
 import Footer  from "./components/Footer";
 import Nav from "./components/Navbar";
 import HomeScreen from "./pages/Home"
-import SecondPage from "./pages/SecondPage";
+import About from "./pages/About";
 import { Nunito } from "next/font/google";
 import Contact from "./pages/Contact";
 import Bento from "./components/Bento";
@@ -18,7 +18,7 @@ export default function Home() {
     <main className={`min-h-screen ${nunito.className}`}>
       <Nav />
       <HomeScreen />
-      <SecondPage />
+      <About />
       <Bento />
       <Contact />
       <Footer />

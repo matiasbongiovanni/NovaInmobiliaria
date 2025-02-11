@@ -57,7 +57,7 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-2xl p-2 shadow-xl">
+        <div className="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-2xl p-2 shadow-xl mt-6 md:mt-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
             <div className="relative flex items-center">
               <MapPin className="absolute left-3 h-5 w-5 text-pallete-400" />
