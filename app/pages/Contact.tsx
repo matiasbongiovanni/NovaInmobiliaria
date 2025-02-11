@@ -1,13 +1,28 @@
-import React from 'react'
+"use client"
 
-interface Props { 
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+import React, { useState } from 'react'
 
-function Contact({name, email, phone, message}: Props) {
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log(formData)
+  }
+
   return (
     <section className="min-h-[400px] py-12 mb-20">
       <div className="max-w-7xl mx-auto px-8">
@@ -17,35 +32,46 @@ function Contact({name, email, phone, message}: Props) {
             <p className="text-gray-600 mb-4 leading-relaxed text-sm">
               Estamos para ayudarte a encontrar la propiedad ideal para tu inversión. Contamos con un equipo de profesionales listos para atenderte.
             </p>
-            <div className="flex flex-col gap-2">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
               <input 
-                type='text' 
+                type='text'
+                name='name'
                 placeholder='Nombre'
-                value={name}
+                value={formData.name}
+                onChange={handleChange}
                 className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pallete-200 text-sm" 
               />
               <input 
-                type='text' 
+                type='email'
+                name='email'
                 placeholder='Email'
-                value={email}
+                value={formData.email}
+                onChange={handleChange}
                 className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pallete-200 text-sm"
               />
               <input 
-                type='text' 
+                type='tel'
+                name='phone'
                 placeholder='Telefono'
-                value={phone}
+                value={formData.phone}
+                onChange={handleChange}
                 className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pallete-200 text-sm"
               />
               <textarea
+                name='message'
                 placeholder='Consulta'
-                value={message}
+                value={formData.message}
+                onChange={handleChange}
                 rows={3}
                 className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pallete-200 text-sm"
               />
-              <button className='bg-pallete-400 text-white px-4 py-2 rounded-lg hover:bg-pallete-500 transition-colors text-sm'>
+              <button 
+                type="submit"
+                className='bg-pallete-400 text-white px-4 py-2 rounded-lg hover:bg-pallete-500 transition-colors text-sm'
+              >
                 Enviar
               </button>
-            </div>
+            </form>
           </div>
           <div className="w-full h-[400px] md:h-full rounded-lg shadow-xl overflow-hidden">
             <iframe 
